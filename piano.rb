@@ -25,7 +25,7 @@ on :key_down do |event|
     when '8'
         Music.new('music/octave_do.mp3').play
     when '9'
-        Music.new('musc/a#.mp3').play
+        Music.new('music/a#.mp3').play
     when 'e'
         exit
     end
