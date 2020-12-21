@@ -1,11 +1,10 @@
 require 'ruby2d'
 
-Text.new('Happy birthday song :) Press the keys!', color: 'yellow', x: 30, y: 30, size: 20, z: 1)
+Text.new('Happy birthday song :) Press numbers on your keyboard!', color: 'yellow', x: 30, y: 30, size: 20, z: 1)
 Text.new('1 1 2 1 4 3 pause 1 1 2 1 5 4 pause 1 1 8 6 4 4 3 2 pause 9 9 6 4 5 4', color: 'green', x: 10, y: 70, size: 20, z: 1)
 Image.new('images/piano.png', x: 50, y: 215, width: 550, height: 180, size: 55, z: 1)
-Text.new('Click to see bday cake and card:)!', color: 'purple', x: 30, y: 450, size: 20, z: 1)
-Text.new('Press "e" to exit!:)', color: 'green', x: 425, y: 455, size: 20, z: 1)
-Text.new('or play a piano...', color: 'maroon', x: 50, y: 180, size: 20, z: 1)
+Text.new('Click to see your bday cake & card:)!', color: 'purple', x: 30, y: 450, size: 20, z: 1)
+Text.new('or play piano...', color: 'maroon', x: 50, y: 180, size: 20, z: 1)
 on :key_down do |event|
     case event.key
     when '1'
@@ -35,10 +34,13 @@ on :mouse_down do |event|
    if event.button == :left && event.x >= 30 && event.x <= 300 && event.y <= 500 && event.y >= 450
        close
        clear
-       Text.new('Press a key (1..9) to stop music', color: 'purple', x: 320, y: 10, size: 20, z: 1)
-       Text.new('Press "e" to exit!:)', color: 'green', x: 5, y: 440, size: 20, z: 1)
-       Image.new('images/bday_card.png', x: 250, y: 280, width: 400, height: 200, size: 85, z: 1)
-       Image.new('images/bday_cake.png', x: 5, y: 5, width: 300, height: 270, size: 55, z: 1)
+       set width: 750
+       set height: 750
+       Image.new('images/matrix.png', y: 35, width: 750, height: 770)
+       Text.new('Press a key (1..9) to stop music', color: 'purple', x: 430, y: 5)
+       Text.new('Press "e" to exit!', color: 'yellow', x: 5, y: 725)
+       Image.new('images/bday_card.png', x: 350, y: 350, width: 400, height: 400)
+       Image.new('images/bday_cake.png', y: 5, width: 400, height: 400)
        music = Music.new('music/happy_bday_song.mp3')
        music.loop = true
        music.play
